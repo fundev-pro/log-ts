@@ -1,0 +1,17 @@
+{
+  "name": "log-tstl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "echo \"Build log-tstl\"",
+    "dev": "echo \"Dev log-tstl\"",
+    "lint": "echo \"Lint log-tstl\"",
+    "test": "echo \"Test log-tstl\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
