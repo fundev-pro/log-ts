@@ -41,7 +41,8 @@ function preparePlatformDir(
     mainFile: string,
     typesFile: string,
     packageName: string,
-    readmeFileName: string
+    readmeFileName: string,
+    homepage: string
 ) {
     if (!existsSync(platformDir)) {
         console.log(`⚠ ${platformName} directory does not exist, skipping...`);
@@ -72,6 +73,8 @@ function preparePlatformDir(
     const edits = [
         // Change package name
         ...modify(modifiedText, ['name'], packageName, {}),
+        // Change homepage
+        ...modify(modifiedText, ['homepage'], homepage, {}),
         // Remove "files" field to let .npmignore work
         ...modify(modifiedText, ['files'], undefined, {}),
         // types: relative to platform directory
@@ -121,7 +124,8 @@ preparePlatformDir(
     './index.js',
     './index.d.ts',
     '@fundev-pro/log-ts',
-    'README.tstjs.md'
+    'README.tstjs.md',
+    'https://github.com/fundev-pro/log-ts/tree/main/README.tstjs.md'
 );
 
 // Prepare Lua platform
@@ -132,7 +136,8 @@ preparePlatformDir(
     './index.lua',
     './index.d.ts',
     '@fundev-pro/log-tstl',
-    'README.tstl.md'
+    'README.tstl.md',
+    'https://github.com/fundev-pro/log-ts/tree/main/README.tstl.md'
 );
 
 console.log('\n✓ Dist preparation completed');

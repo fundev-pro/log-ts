@@ -13,35 +13,19 @@ Install the Lua package (after publishing) from npm and unpack or use your prefe
 npm install @fundev-pro/log-tstl
 ```
 
-The build produces Lua files in the package root:
-
-- `index.lua` – library entry point
-- `internal/*` – core types, logger, targets, utils
-- `print/*` – print target and preset config
-
-## Basic usage (Lua)
-
-```lua
-local log = require("index")  -- or your own module path
-
-local createLogger = log.createLogger
-
-local logger = createLogger("MyApp")
-
-logger:trace("Trace message")
-logger:debug("Debug message")
-logger:info("Info message")
-logger:warn("Warning message")
-logger:error("Error message")
-logger:fatal("Fatal error")
-```
-
-> **Note**: When you call `createLogger` without a config, it automatically uses `printLogConfig()` as the default.
-
 ## Configuration from TypeScript
 
 All configuration examples are written in TypeScript and compiled to Lua.
 You write your logging setup in TS using `@fundev-pro/log-tstl` (TSTL target), and TypeScriptToLua produces the Lua version with the **same public API**.
+
+```typescript
+import { createLogger } from '@fundev-pro/log-tstl';
+
+const logger = createLogger('MyApp');
+logger.info('Hello from TSTL');
+```
+
+> **Note**: When you call `createLogger` without a config, it automatically uses `printLogConfig()` as the default.
 
 ### Customizing the built-in `print` preset
 
@@ -89,6 +73,23 @@ const config = configLog({
 });
 
 export const logger = createLogger('MyLuaApp', config);
+```
+
+## Basic usage (Lua)
+
+```lua
+local log = require("index")  -- or your own module path
+
+local createLogger = log.createLogger
+
+local logger = createLogger("MyApp")
+
+logger:trace("Trace message")
+logger:debug("Debug message")
+logger:info("Info message")
+logger:warn("Warning message")
+logger:error("Error message")
+logger:fatal("Fatal error")
 ```
 
 ## Notes

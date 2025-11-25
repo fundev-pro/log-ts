@@ -186,5 +186,5 @@ logger.error('Goes to both targets');
 
 ## Platform-specific docs
 
-- **JS/TS**: see `README.tstjs.md` for platform-specific examples and built-in presets
-- **TSTL/Lua**: see `README.tstl.md` for Lua-specific usage and `print` target
+- **JS/TS**: see [README.tstjs.md](README.tstjs.md) for platform-specific examples and built-in presets
+- **TSTL/Lua**: see [README.tstl.md](README.tstl.md) for Lua-specific usage and `print` target
