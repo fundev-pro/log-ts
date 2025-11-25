@@ -16,7 +16,7 @@ export function createLogger<TLogger, TTargets extends Record<string, LogTarget 
     }
 
     if (typeof Date !== 'undefined' && typeof console !== 'undefined') {
-        return new DefaultLogger(logger, consoleLogConfig);
+        return new DefaultLogger(logger, consoleLogConfig());
     } else {
         throw new Error('Unknown environment, please provide config options');
     }

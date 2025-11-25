@@ -15,7 +15,7 @@ export function createLogger<TLogger, TTargets extends Record<string, LogTarget 
     }
 
     if (typeof os !== 'undefined' && typeof print !== 'undefined') {
-        return new DefaultLogger(logger, printLogConfig);
+        return new DefaultLogger(logger, printLogConfig());
     } else {
         throw new Error('Unknown environment, please provide config options');
     }

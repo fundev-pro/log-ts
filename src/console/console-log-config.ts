@@ -1,10 +1,6 @@
 
-import { LogEvent, padEndByRecent, configLog, LogLevel, defaultTarget } from "../internal";
-import { rowSelectionHandlerConsole } from "./row-selection-handler-console";
-
-declare const console: {
-    log: (...args: unknown[]) => void;
-};
+import { LogEvent, padEndByRecent, configLog, LogLevel } from "../internal";
+import { consoleTarget } from "./console-target";
 
 const recentLoggers: string[] = [];
 const recentLevels: string[] = [];
@@ -15,25 +11,16 @@ const timeFormat = (e: LogEvent) => {
     return `${date.toTimeString().split(' ')[0]}.${date.getMilliseconds().toString().padStart(3, '0')}`;
 };
 
-export const consoleLogConfig = configLog({
+export const consoleLogConfig = () => configLog({
     minLevelDefault: LogLevel.Trace,
     maxLevelDefault: LogLevel.Error,
 
     targets: {
-        console: defaultTarget({
-            printFunction: (...args) => console.log(...args),
+        console: consoleTarget({
             layout: e => [
                 `${timeFormat(e)}|${levelFormat(e)}|${loggerFormat(e)}|`,
                 ...e.message,
-            ],
-            rowSelectionRules: [
-                { predicate: e => e.level == LogLevel.Trace, color: 'darkgray' },
-                { predicate: e => e.level == LogLevel.Debug, color: 'cyan' },
-                { predicate: e => e.level == LogLevel.Info, color: 'white' },
-                { predicate: e => e.level == LogLevel.Warn, color: 'orange' },
-                { predicate: e => e.level == LogLevel.Error, color: 'red' },
-            ],
-            rowSelectionHandler: rowSelectionHandlerConsole,
+            ]
         }),
        
     },
@@ -41,3 +28,5 @@ export const consoleLogConfig = configLog({
 
     rules: [{ pattern: '*', writeTo: 'console' }],
 });
+
+
