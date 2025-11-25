@@ -38,9 +38,7 @@ import { consoleLogConfig } from '@fundev-pro/log-ts/console';
 
 // Customize the preset
 const customConfig = consoleLogConfig();
-customConfig.rules = [
-    { pattern: 'MyApp', minLevel: LogLevel.Warn, writeTo: 'console' }
-];
+customConfig.rules = [{ pattern: 'MyApp', minLevel: LogLevel.Warn, writeTo: 'console' }];
 const logger = createLogger('MyApp', customConfig);
 ```
 
@@ -50,11 +48,11 @@ const logger = createLogger('MyApp', customConfig);
 - **Log level**: padded dynamically (e.g., `TRACE`, `DEBUG`, `INFO`)
 - **Logger name**: padded dynamically
 - **Color rules** for browser console:
-  - `Trace` → darkgray
-  - `Debug` → cyan
-  - `Info` → white
-  - `Warn` → orange
-  - `Error` → red
+    - `Trace` → darkgray
+    - `Debug` → cyan
+    - `Info` → white
+    - `Warn` → orange
+    - `Error` → red
 - **Layout**: `timestamp|level|logger| ...messages`
 
 ## Platform-specific features
@@ -71,7 +69,7 @@ const config = configLog({
 
     targets: {
         console: consoleTarget({
-            layout: e => [`[${e.levelName}]`, ...e.message]
+            layout: e => [`[${e.levelName}]`, ...e.message],
         }),
     },
 

@@ -7,9 +7,10 @@ declare const console: {
     log: (...args: unknown[]) => void;
 };
 
-export function createLogger<TLogger, TTargets extends Record<string, LogTarget | (() => LogTarget)>>(
-    logger: (new (...args: unknown[]) => TLogger) | string, config?: LogConfig<TTargets>
-): Logger {
+export function createLogger<
+    TLogger,
+    TTargets extends Record<string, LogTarget | (() => LogTarget)>,
+>(logger: (new (...args: unknown[]) => TLogger) | string, config?: LogConfig<TTargets>): Logger {
     logger = typeof logger == 'string' ? logger : logger.name.replace(/^_/, '');
     if (config) {
         return new DefaultLogger(logger, config);

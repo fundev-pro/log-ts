@@ -1,13 +1,13 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./dist/lua"
-  },
-  "tstl": {
-    "buildMode": "library",
-    "luaLibImport": "require-minimal",
-    "noImplicitSelf": true,
-    "noHeader": true
-  },
-  "exclude": ["scripts", "src/console", "src/index.tstjs.ts"]
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./dist/lua"
+    },
+    "tstl": {
+        "buildMode": "library",
+        "luaLibImport": "require-minimal",
+        "noImplicitSelf": true,
+        "noHeader": true
+    },
+    "exclude": ["scripts", "src/console", "src/index.tstjs.ts"]
 }

@@ -1,8 +1,7 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "outDir": "./dist/js"
-  },
-  "exclude": ["scripts", "src/print", "src/index.tstl.ts"]
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./dist/js"
+    },
+    "exclude": ["scripts", "src/print", "src/index.tstl.ts"]
 }
-

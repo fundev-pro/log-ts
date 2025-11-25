@@ -93,7 +93,7 @@ export class DefaultLogger<TLogger, TTargets extends Record<string, LogTarget | 
 
         if (!ruleLevels.targets) return;
 
-        const timestamp = this.config.timestampProvider()
+        const timestamp = this.config.timestampProvider();
 
         for (const target of ruleLevels.targets) {
             let isLog = true;

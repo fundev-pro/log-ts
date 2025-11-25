@@ -1,5 +1,11 @@
-import { LogTarget, DefaultTargetOptions, DefaultTarget, DefaultTargetOptionsNotNecessarilyPrint, LogLevel } from "../internal";
-import { rowSelectionHandlerConsole } from "./row-selection-handler-console";
+import {
+    LogTarget,
+    DefaultTargetOptions,
+    DefaultTarget,
+    DefaultTargetOptionsNotNecessarilyPrint,
+    LogLevel,
+} from '../internal';
+import { rowSelectionHandlerConsole } from './row-selection-handler-console';
 
 export declare const console: {
     log: (...args: unknown[]) => void;

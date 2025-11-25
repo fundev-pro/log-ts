@@ -87,7 +87,7 @@ export default [
         },
     },
     {
-        files: ['eslint.config.js'],
+        files: ['eslint.config.mjs'],
         languageOptions: {
             parserOptions: {
                 project: null,
@@ -111,7 +111,8 @@ export default [
             'node_modules/**',
             '*.js',
             '*.d.ts',
-            '!eslint.config.js',
+            '!eslint.config.mjs',
+            'scripts/**/*.ts',
             '*.json.hbs',
         ],
     },

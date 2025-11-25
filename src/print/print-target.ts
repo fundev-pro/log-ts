@@ -1,4 +1,9 @@
-import { LogTarget, DefaultTargetOptions, DefaultTarget, DefaultTargetOptionsNotNecessarilyPrint } from "../internal";
+import {
+    LogTarget,
+    DefaultTargetOptions,
+    DefaultTarget,
+    DefaultTargetOptionsNotNecessarilyPrint,
+} from '../internal';
 
 export function printTarget(options: DefaultTargetOptionsNotNecessarilyPrint): LogTarget {
     const fullOptions: DefaultTargetOptions = {

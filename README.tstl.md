@@ -36,9 +36,7 @@ import { createLogger, LogLevel } from '@fundev-pro/log-tstl';
 import { printLogConfig } from '@fundev-pro/log-tstl/print';
 
 const customConfig = printLogConfig();
-customConfig.rules = [
-    { pattern: 'MyApp', minLevel: LogLevel.Warn, writeTo: 'print' }
-];
+customConfig.rules = [{ pattern: 'MyApp', minLevel: LogLevel.Warn, writeTo: 'print' }];
 
 export const logger = createLogger('MyLuaApp', customConfig);
 ```
@@ -63,7 +61,7 @@ const config = configLog({
 
     targets: {
         print: printTarget({
-            layout: e => [`[${e.levelName}]`, ...e.message]
+            layout: e => [`[${e.levelName}]`, ...e.message],
         }),
     },
 
@@ -97,5 +95,3 @@ logger:fatal("Fatal error")
 - The Lua version mirrors the API of the JS/TS package `@fundev-pro/log-ts`.
 - Timestamps and console output are adapted to Lua (`os.time`, `os.date`, `print`).
 - For more configuration patterns (filtering, multiple targets, etc.), see the main [README.md](README.md) – the same concepts apply, you just write them in TypeScript.
-
-

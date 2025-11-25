@@ -1,5 +1,4 @@
-import { LogEvent, DefaultTargetOptions } from "../internal";
-
+import { LogEvent, DefaultTargetOptions } from '../internal';
 
 export function rowSelectionHandlerConsole(
     logEvent: LogEvent,
@@ -22,5 +21,3 @@ export function rowSelectionHandlerConsole(
 
     return [layoutFormat, ...layoutArgs];
 }
-
-
