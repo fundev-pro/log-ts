@@ -11,6 +11,29 @@ const distDir = join(rootDir, 'dist');
 const distJsDir = join(distDir, 'js');
 const distLuaDir = join(distDir, 'lua');
 
+const jsKeywords = [
+    'logging',
+    'logger',
+    'log',
+    'typescript',
+    'javascript',
+    'js',
+    'structured-logging',
+    'console',
+];
+
+const luaKeywords = [
+    'logging',
+    'logger',
+    'log',
+    'typescript',
+    'lua',
+    'tstl',
+    'typescript-to-lua',
+    'structured-logging',
+    'print',
+];
+
 // Function to rename files with platform suffixes
 function renamePlatformFiles(dir: string, suffix: string) {
     if (!existsSync(dir)) {
@@ -41,6 +64,7 @@ function preparePlatformDir(
     mainFile: string,
     typesFile: string,
     packageName: string,
+    keywords: string[],
     readmeFileName: string,
     homepage: string
 ) {
@@ -69,12 +93,13 @@ function preparePlatformDir(
     // Edit paths relative to platform directory
     let modifiedText = packageJsonText;
 
-    // Remove "dist/" from paths and clean up unnecessary fields
     const edits = [
         // Change package name
         ...modify(modifiedText, ['name'], packageName, {}),
         // Change homepage
         ...modify(modifiedText, ['homepage'], homepage, {}),
+        // Set keywords
+        ...modify(modifiedText, ['keywords'], keywords, {}),
         // Remove "files" field to let .npmignore work
         ...modify(modifiedText, ['files'], undefined, {}),
         // types: relative to platform directory
@@ -116,7 +141,7 @@ function preparePlatformDir(
     }
 }
 
-// Prepare JS platform
+// Prepare JS platform (tstjs)
 preparePlatformDir(
     distJsDir,
     'JS',
@@ -124,11 +149,12 @@ preparePlatformDir(
     './index.js',
     './index.d.ts',
     '@fundev-pro/log-ts',
+    jsKeywords,
     'README.tstjs.md',
     'https://github.com/fundev-pro/log-ts/tree/main/README.tstjs.md'
 );
 
-// Prepare Lua platform
+// Prepare Lua platform (tstl)
 preparePlatformDir(
     distLuaDir,
     'Lua',
@@ -136,6 +162,7 @@ preparePlatformDir(
     './index.lua',
     './index.d.ts',
     '@fundev-pro/log-tstl',
+    luaKeywords,
     'README.tstl.md',
     'https://github.com/fundev-pro/log-ts/tree/main/README.tstl.md'
 );

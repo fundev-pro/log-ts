@@ -1,27 +1,37 @@
 {
     "name": "@fundev-pro/log",
     "version": "1.0.0",
-    "description": "",
+    "description": "Logging library with flexible configuration and multiple output targets",
+    "keywords": [],
     "scripts": {
-        "build": "npm run build:all",
+        "build": "npm run build:js && npm run build:lua",
         "build:js": "tsc -p tsconfig.tstjs.json",
         "build:lua": "tstl -p tsconfig.tstl.json",
-        "build:all": "npm run build:js && npm run build:lua",
+
         "clean": "rimraf dist",
         "clean:js": "rimraf dist/js",
         "clean:lua": "rimraf dist/lua",
+
         "rebuild": "npm run clean && npm run build:all",
         "rebuild:js": "npm run clean:js && npm run build:js",
         "rebuild:lua": "npm run clean:lua && npm run build:lua",
+
         "prepare-dist": "tsx scripts/prepare-dist.ts",
         "prepack:js": "npm run rebuild:js && npm run prepare-dist",
         "prepack:lua": "npm run rebuild:lua && npm run prepare-dist",
+
         "pack": "npm run pack:js && npm run pack:lua",
-        "pack:js": "npm run prepack:js && cd dist/js && npm pack",
-        "pack:lua": "npm run prepack:lua && cd dist/lua && npm pack",
+        "pack:js": "npm run prepack:js && cd dist/js && npm pack --dry-run",
+        "pack:lua": "npm run prepack:lua && cd dist/lua && npm pack --dry-run",
+
         "publish": "npm run publish:js && npm run publish:lua",
         "publish:js": "npm run prepack:js && cd dist/js && npm publish --access public",
         "publish:lua": "npm run prepack:lua && cd dist/lua && npm publish --access public",
+
+        "release:patch": "npm version patch",
+        "release:minor": "npm version minor",
+        "release:major": "npm version major",
+
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
         "format": "prettier --write \"**/*.{ts,js,json,md}\"",
@@ -31,7 +41,6 @@
         "type": "git",
         "url": "git+https://github.com/fundev-pro/log-ts.git"
     },
-    "keywords": [],
     "author": "",
     "license": "ISC",
     "type": "commonjs",
