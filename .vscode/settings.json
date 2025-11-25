@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        "**/.turbo": true,
+        "**/tsconfig.tsbuildinfo": true,
+        "**/package-lock.json": true
+    },
+    "cSpell.words": ["lualib", "METATABLE", "Metatables", "tstl"]
+}

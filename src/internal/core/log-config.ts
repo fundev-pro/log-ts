@@ -7,5 +7,5 @@ export interface LogConfig<TTargets extends Record<string, LogTarget | (() => Lo
     maxLevelDefault: LogLevel;
     targets: TTargets;
     rules: LogRule<keyof TTargets>[];
-    timestampProvider?: () => number;
+    timestampProvider: (this: void) => number;
 }

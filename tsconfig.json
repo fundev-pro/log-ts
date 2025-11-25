@@ -1,20 +1,11 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "lib": ["ES2020"],
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "ESNext",
+    "lib": ["ESNext"],
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "types": ["lua-types/5.1"],
+    "declaration": true,
+    "rootDir": "./src"
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["scripts"]
 }
-

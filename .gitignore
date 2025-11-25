@@ -31,7 +31,6 @@ lerna-debug.log*
 .turbo
 
 # IDE
-.vscode/
 .idea/
 *.swp
 *.swo

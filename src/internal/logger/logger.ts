@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { LogLevel } from '../core';
 
-export interface Logger {
+export interface Logger<TLogger = void> {
     fatal(message?: unknown, ...optionalParams: unknown[]): void;
     error(message?: unknown, ...optionalParams: unknown[]): void;
     warn(message?: unknown, ...optionalParams: unknown[]): void;

@@ -1,6 +1,6 @@
 import { Logger } from './logger';
 import { LogLevel, LogFilter, LogRule, LogTarget, LogEvent, LogConfig } from '../core';
-import { defaultTimestampProvider, matchPattern } from '../utils';
+import { matchPattern } from '../utils';
 
 export class DefaultLogger<TLogger, TTargets extends Record<string, LogTarget | (() => LogTarget)>>
     implements Logger
@@ -93,9 +93,7 @@ export class DefaultLogger<TLogger, TTargets extends Record<string, LogTarget | 
 
         if (!ruleLevels.targets) return;
 
-        const timestamp = this.config.timestampProvider
-            ? this.config.timestampProvider()
-            : defaultTimestampProvider();
+        const timestamp = this.config.timestampProvider()
 
         for (const target of ruleLevels.targets) {
             let isLog = true;
